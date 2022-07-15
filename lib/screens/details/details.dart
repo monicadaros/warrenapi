@@ -108,6 +108,26 @@ class _WalletScreenState extends ConsumerState<WalletScreen> {
                                                     ),
                                                   ),
                                                 ),
+                                                ListTile(
+                                                  title: const Text(
+                                                      "Valor mínimo"),
+                                                  trailing: Text(datas
+                                                      .metrics
+                                                      .market_data
+                                                      .ohlcv_last_1_hour
+                                                      .low
+                                                      .toString()),
+                                                ),
+                                                ListTile(
+                                                  title: const Text(
+                                                      "Valor máximo"),
+                                                  trailing: Text(datas
+                                                      .metrics
+                                                      .market_data
+                                                      .ohlcv_last_1_hour
+                                                      .high
+                                                      .toString()),
+                                                )
                                               ])
                                             ],
                                           ),

@@ -1,16 +1,16 @@
 import 'package:json_annotation/json_annotation.dart';
 
-part 'crypto_market_response.g.dart';
+part 'crypto_variation_day.g.dart';
 
 @JsonSerializable()
-class CryptoMarketResponse {
-  final num price_usd;
-  final num percent_change_usd_last_1_hour;
+class VariationDay {
+  final num high;
+  final num low;
 
-  CryptoMarketResponse(this.price_usd, this.percent_change_usd_last_1_hour);
+  VariationDay(this.high, this.low);
 
-  factory CryptoMarketResponse.fromJson(Map<String, dynamic> json) =>
-      _$CryptoMarketResponseFromJson(json);
+  factory VariationDay.fromJson(Map<String, dynamic> json) =>
+      _$VariationDayFromJson(json);
 
-  Map<String, dynamic> toJson() => _$CryptoMarketResponseToJson(this);
+  Map<String, dynamic> toJson() => _$VariationDayToJson(this);
 }
