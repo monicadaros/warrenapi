@@ -48,6 +48,7 @@ class _WalletScreenState extends ConsumerState<WalletScreen> {
                     data: (getdata) => Column(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
+                              const Divider(),
                               Column(
                                 children: getdata
                                     .map((datas) => Container(

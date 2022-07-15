@@ -6,6 +6,6 @@ class DataCryptoEndpoint {
   DataCryptoEndpoint(this._dio);
 
   Future<Response> getData() {
-    return _dio.get('mobileBackend/db');
+    return _dio.get('/db');
   }
 }
