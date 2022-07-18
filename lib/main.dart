@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:warrenapi/screens/details/details.dart';
 import 'package:warrenapi/screens/wallet/wallet.dart';
 import 'package:warrenapi/widgets/bottom_bar.dart';
 
@@ -12,7 +13,8 @@ void main() {
         initialRoute: '/bottom_bar',
         routes: {
           '/bottom_bar': (BuildContext context) => const AppBottomBar(),
-          '/wallet_teste': (BuildContext context) => const WalletScreen(),
+          '/wallet': (BuildContext context) => const WalletScreen(),
+          '/details': (BuildContext context) => const DetailsScreen(),
         },
         theme: ThemeData(
           primarySwatch: Colors.pink,

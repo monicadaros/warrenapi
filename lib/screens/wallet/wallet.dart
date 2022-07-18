@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:warrenapi/lists/crypto_list.dart';
+import 'package:warrenapi/screens/details/details.dart';
 import 'package:warrenapi/screens/provaider_screen.dart';
 import 'package:warrenapi/screens/wallet/provaider_wallet.dart';
 import 'package:warrenapi/widgets/bool_visible.dart';
@@ -93,6 +94,13 @@ class _WalletScreenState extends ConsumerState<WalletScreen> {
                                                 ),
                                               ],
                                             ),
+                                            onTap: () {
+                                              Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                      builder: (context) =>
+                                                          const DetailsScreen()));
+                                            },
                                           ),
                                           const Divider()
                                         ])))
