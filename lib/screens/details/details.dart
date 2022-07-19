@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:warrenapi/models/crypto_detailsscreen.dart';
-import 'package:warrenapi/screens/provaider_screen.dart';
 import '../../widgets/app_bar.dart';
 
 class DetailsScreen extends ConsumerStatefulWidget {
@@ -15,7 +14,6 @@ class DetailsScreen extends ConsumerStatefulWidget {
 class _WalletScreenState extends ConsumerState<DetailsScreen> {
   @override
   Widget build(BuildContext context) {
-    final cryptoProvider = ref.watch(dataCryptoProvider(dataCryptoProvider));
     const String pageName = "Detalhes";
 
     return Scaffold(
@@ -27,89 +25,77 @@ class _WalletScreenState extends ConsumerState<DetailsScreen> {
         ),
         body: SingleChildScrollView(
           child: Column(children: [
-            cryptoProvider.when(
-                data: (getdata) => Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        mainAxisSize: MainAxisSize.min,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Column(
-                            children: getdata
-                                .map((datas) => Container(
-                                    padding: const EdgeInsets.all(0),
-                                    child: Column(children: [
-                                      ListTile(
-                                        title: const Text("Moeda"),
-                                        subtitle: Text(widget.info.name),
-                                      ),
+            Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Column(
+                    children: [
+                      Container(
+                          padding: const EdgeInsets.all(0),
+                          child: Column(children: [
+                            ListTile(
+                              title: const Text("Moeda"),
+                              subtitle: Text(widget.info.name),
+                            ),
 
-                                      // gráfico
+                            // gráfico
 
-                                      Column(
+                            Column(
+                              children: [
+                                const Text("Informações"),
+                                const Divider(),
+                                Column(children: [
+                                  ListTile(
+                                    title: Text(widget.info.name),
+                                    subtitle: const Text("Valor atual"),
+                                    trailing: Text("R\$" +
+                                        widget.info.price_usd.toString()),
+                                  ),
+                                  const Divider(),
+                                  ListTile(
+                                      title: const Text("Cap de mercado"),
+                                      trailing: Column(
                                         children: [
-                                          const Text("Informações"),
-                                          const Divider(),
-                                          Column(children: [
-                                            ListTile(
-                                              title: Text(widget.info.name),
-                                              subtitle:
-                                                  const Text("Valor atual"),
-                                              trailing: Text("R\$" +
-                                                  widget.info.price_usd
-                                                      .toString()),
+                                          SizedBox(
+                                            child: DecoratedBox(
+                                              decoration: BoxDecoration(
+                                                color: widget.info
+                                                            .percent_change_usd_last_1_hour >
+                                                        0
+                                                    ? Colors.green
+                                                    : Colors.red,
+                                                borderRadius:
+                                                    BorderRadius.circular(20),
+                                              ),
+                                              child: Text(
+                                                widget.info
+                                                        .percent_change_usd_last_1_hour
+                                                        .toString() +
+                                                    "%",
+                                                textAlign: TextAlign.end,
+                                              ),
                                             ),
-                                            const Divider(),
-                                            ListTile(
-                                                title: const Text(
-                                                    "Cap de mercado"),
-                                                trailing: Column(
-                                                  children: [
-                                                    SizedBox(
-                                                      child: DecoratedBox(
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: widget.info
-                                                                      .percent_change_usd_last_1_hour >
-                                                                  0
-                                                              ? Colors.green
-                                                              : Colors.red,
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(20),
-                                                        ),
-                                                        child: Text(
-                                                          widget.info
-                                                                  .percent_change_usd_last_1_hour
-                                                                  .toString() +
-                                                              "%",
-                                                          textAlign:
-                                                              TextAlign.end,
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ],
-                                                )),
-                                            ListTile(
-                                              title: const Text("Valor mínimo"),
-                                              trailing: Text(
-                                                  widget.info.low.toString()),
-                                            ),
-                                            ListTile(
-                                              title: const Text("Valor máximo"),
-                                              trailing: Text(
-                                                  widget.info.high.toString()),
-                                            )
-                                          ])
+                                          ),
                                         ],
-                                      ),
-                                      const Divider()
-                                    ])))
-                                .toList(),
-                          )
-                        ]),
-                error: (error, stackTrace) =>
-                    const Text("Ops, algo deu errado!"),
-                loading: () => const CircularProgressIndicator()),
+                                      )),
+                                  ListTile(
+                                    title: const Text("Valor mínimo"),
+                                    trailing: Text(widget.info.low.toString()),
+                                  ),
+                                  ListTile(
+                                    title: const Text("Valor máximo"),
+                                    trailing: Text(widget.info.high.toString()),
+                                  )
+                                ])
+                              ],
+                            ),
+                            const Divider()
+                          ]))
+                    ],
+                  )
+                ]),
           ]),
         ));
   }
