@@ -7,7 +7,7 @@ final dataCryptoUseCase = Provider((ref) {
   return DataCryptoUseCase(repository: ref.read(dataCryptoRepositoryProvider));
 });
 
-final dataCryptoProvider =
-    FutureProvider<List<DataCryptoViewData>>((ref) async {
+final dataCryptoProvider = FutureProvider.autoDispose
+    .family<List<DataCryptoViewData>, dynamic>((ref, arg) async {
   return ref.read(dataCryptoUseCase).execute();
 });
