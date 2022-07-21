@@ -1,5 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:warrenapi/models/crypto_variation_day.dart';
+import 'crypto_variation_day.dart';
 
 part 'crypto_market_response.g.dart';
 

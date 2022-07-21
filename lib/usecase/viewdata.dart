@@ -1,4 +1,4 @@
-import '../models/crypto_full_market_response.dart';
+import '../models/api model/crypto_full_market_response.dart';
 
 class DataCryptoViewData {
   final String symbol;
@@ -11,4 +11,10 @@ class DataCryptoViewData {
       required this.name,
       required this.slug,
       required this.symbol});
+}
+
+class DataChartsViewData {
+  final List<List<double>> btc_timeseries;
+
+  DataChartsViewData({required this.btc_timeseries});
 }

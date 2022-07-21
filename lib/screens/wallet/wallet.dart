@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:warrenapi/lists/crypto_list.dart';
-import 'package:warrenapi/models/crypto_detailsscreen.dart';
 import 'package:warrenapi/screens/provaider_screen.dart';
 import 'package:warrenapi/screens/wallet/provaider_wallet.dart';
 import 'package:warrenapi/widgets/bool_visible.dart';
 
+import '../../models/screen model/crypto_detailsscreen.dart';
 import '../details/details.dart';
 
 class WalletScreen extends ConsumerStatefulWidget {

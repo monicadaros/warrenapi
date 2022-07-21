@@ -11,3 +11,7 @@ final dataCryptoProvider = FutureProvider.autoDispose
     .family<List<DataCryptoViewData>, dynamic>((ref, arg) async {
   return ref.read(dataCryptoUseCase).execute();
 });
+
+final dataChartProvider = FutureProvider<List<DataChartsViewData>>((ref) async {
+  return ref.read(dataCryptoUseCase).executechart();
+});
