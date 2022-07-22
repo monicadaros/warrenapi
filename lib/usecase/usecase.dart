@@ -1,4 +1,3 @@
-import 'package:dio/dio.dart';
 import 'package:warrenapi/usecase/mapper.dart';
 import 'package:warrenapi/usecase/viewdata.dart';
 

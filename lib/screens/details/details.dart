@@ -37,10 +37,10 @@ class _WalletScreenState extends ConsumerState<DetailsScreen> {
         body: SingleChildScrollView(
             child: Column(children: [
           Padding(
-              padding: EdgeInsets.all(3),
+              padding: const EdgeInsets.all(3),
               child: ChartLine(
                 dataCharts: dataCharts,
-                info: null,
+                info: widget.info,
               )),
           Column(
             children: [
