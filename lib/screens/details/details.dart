@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:warrenapi/usecase/viewdata.dart';
 import 'package:warrenapi/widgets/chart_line.dart';
 import '../../models/screen model/crypto_detailsscreen.dart';
 import '../../widgets/app_bar.dart';
-import '../provaider_screen.dart';
 
 class DetailsScreen extends ConsumerStatefulWidget {
   final DataDetailsScreen info;
@@ -18,14 +16,6 @@ class _WalletScreenState extends ConsumerState<DetailsScreen> {
   @override
   Widget build(BuildContext context) {
     const String pageName = "Detalhes";
-    final value = ref.watch(dataChartProvider);
-
-    List<dynamic> dataCharts = [];
-    value.whenOrNull(
-        data: (data) => dataCharts = data
-            .map((timeseries) =>
-                DataChartsViewData(btc_timeseries: timeseries.btc_timeseries))
-            .toList());
 
     return Scaffold(
         appBar: const PreferredSize(
@@ -39,7 +29,6 @@ class _WalletScreenState extends ConsumerState<DetailsScreen> {
           Padding(
               padding: const EdgeInsets.all(3),
               child: ChartLine(
-                dataCharts: dataCharts,
                 info: widget.info,
               )),
           Column(

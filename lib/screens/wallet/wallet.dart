@@ -100,27 +100,30 @@ class _WalletScreenState extends ConsumerState<WalletScreen> {
                                               Navigator.push(
                                                   context,
                                                   MaterialPageRoute(
-                                                      builder: (context) => DetailsScreen(
-                                                          info: DataDetailsScreen(
-                                                              high: datas
-                                                                  .metrics
-                                                                  .market_data
-                                                                  .ohlcv_last_1_hour
-                                                                  .high,
-                                                              low: datas
-                                                                  .metrics
-                                                                  .market_data
-                                                                  .ohlcv_last_1_hour
-                                                                  .low,
-                                                              name: datas.name,
-                                                              percent_change_usd_last_1_hour: datas
-                                                                  .metrics
-                                                                  .market_data
-                                                                  .percent_change_usd_last_1_hour,
-                                                              price_usd: datas
-                                                                  .metrics
-                                                                  .market_data
-                                                                  .price_usd))));
+                                                      builder: (context) =>
+                                                          DetailsScreen(
+                                                            info: DataDetailsScreen(
+                                                                high: datas
+                                                                    .metrics
+                                                                    .market_data
+                                                                    .ohlcv_last_1_hour
+                                                                    .high,
+                                                                low: datas
+                                                                    .metrics
+                                                                    .market_data
+                                                                    .ohlcv_last_1_hour
+                                                                    .low,
+                                                                name:
+                                                                    datas.name,
+                                                                percent_change_usd_last_1_hour: datas
+                                                                    .metrics
+                                                                    .market_data
+                                                                    .percent_change_usd_last_1_hour,
+                                                                price_usd: datas
+                                                                    .metrics
+                                                                    .market_data
+                                                                    .price_usd),
+                                                          )));
                                             },
                                           ),
                                           const Divider()

@@ -2,34 +2,42 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 import '../models/screen model/crypto_detailsscreen.dart';
+import '../screens/provaider_screen.dart';
+import '../usecase/viewdata_chart.dart';
 
 class ChartLine extends ConsumerStatefulWidget {
-  final List dataCharts;
   final DataDetailsScreen info;
-  const ChartLine({Key? key, required this.dataCharts, required this.info})
-      : super(key: key);
+  const ChartLine({Key? key, required this.info}) : super(key: key);
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() => _ChartLineState();
 }
 
 class _ChartLineState extends ConsumerState<ChartLine> {
+  num today = 0;
+  num daysLenght = 10;
+  List<dynamic> dataCharts = [];
   @override
   Widget build(BuildContext context) {
-    num today = 0;
-    num daysLenght = 10;
-    List<dynamic> dataCharts = widget.dataCharts;
+    final value = ref.watch(dataChartProvider);
+
+    value.whenOrNull(data: (data) {
+      dataCharts = data
+          .map((timeseries) =>
+              DataChartsViewData(btc_timeseries: timeseries.btc_timeseries))
+          .toList();
+      print("linha29${dataCharts.length}");
+    });
 
     List<dynamic> valueCharts(num daysLenght) {
       final List<dynamic> value = [];
       for (var i = 0; i < daysLenght; i++) {
-        value.add([widget.dataCharts[0].btc_timeseries[i][1], today + 1]);
-        today = daysLenght;
+        value.add([dataCharts[0].timeseries.btc_timeseries[i][1], today + 1]);
+        today += daysLenght;
       }
+      print("teste$value");
       return value;
     }
-
-    dataCharts = valueCharts(daysLenght);
 
     buttonChart(String buttonName, int daysLenght) {
       return Padding(
@@ -82,10 +90,8 @@ class _ChartLineState extends ConsumerState<ChartLine> {
                                 animationDuration: 1000,
                                 dataSource: dataCharts,
                                 color: Colors.orange,
-                                xValueMapper: (dynamic eixoX, _) =>
-                                    eixoX(valueCharts(1)),
-                                yValueMapper: (dynamic eixoY, _) =>
-                                    eixoY(valueCharts(0)),
+                                xValueMapper: (dynamic eixoX, _) => eixoX[0],
+                                yValueMapper: (dynamic eixoY, _) => eixoY[1],
                                 dataLabelSettings:
                                     const DataLabelSettings(isVisible: false),
                                 markerSettings:
