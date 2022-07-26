@@ -16,7 +16,6 @@ class DataCryptoUseCase {
   }
 
   Future<List<DataChartsViewData>> executechart() async {
-    await Future.delayed(const Duration(seconds: 2));
     final response = await repository.getData();
 
     return response.toChartData();
