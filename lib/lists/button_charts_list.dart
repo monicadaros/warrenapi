@@ -6,6 +6,5 @@ class ChartButtonList {
     ChartModel(buttonName: 10),
     ChartModel(buttonName: 15),
     ChartModel(buttonName: 30),
-    ChartModel(buttonName: 50),
   ];
 }

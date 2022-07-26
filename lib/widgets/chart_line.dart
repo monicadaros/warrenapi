@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
@@ -8,7 +10,10 @@ import '../usecase/viewdata_chart.dart';
 
 class ChartLine extends ConsumerStatefulWidget {
   final DataDetailsScreen info;
-  const ChartLine({Key? key, required this.info}) : super(key: key);
+  const ChartLine({
+    Key? key,
+    required this.info,
+  }) : super(key: key);
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() => _ChartLineState();
@@ -16,9 +21,16 @@ class ChartLine extends ConsumerStatefulWidget {
 
 class _ChartLineState extends ConsumerState<ChartLine> {
   num today = 0;
-  num daysLenght = 10;
   List<dynamic> dataCharts = [];
   bool selectChart = false;
+
+  int currentDay = 5;
+
+  void _replaceDate(int dataReplace) {
+    setState(() {
+      currentDay = dataReplace;
+    });
+  }
 
   void _replaceChart(bool replace) {
     setState(() => selectChart = replace);
@@ -26,6 +38,7 @@ class _ChartLineState extends ConsumerState<ChartLine> {
 
   @override
   Widget build(BuildContext context) {
+    num daysLenght = currentDay;
     final value = ref.watch(dataChartProvider);
 
     value.whenOrNull(data: (data) {
@@ -64,15 +77,16 @@ class _ChartLineState extends ConsumerState<ChartLine> {
         padding: const EdgeInsets.symmetric(horizontal: 6),
         child: OutlinedButton(
             style: ButtonStyle(
-              textStyle: MaterialStateProperty.all(
-                  const TextStyle(color: Colors.black)),
               backgroundColor: MaterialStateProperty.all(
                   const Color.fromARGB(255, 235, 231, 231)),
             ),
             onPressed: () {
-              valueCharts(daysLenght);
+              _replaceDate(daysLenght);
             },
-            child: Text(buttonName)),
+            child: Text(
+              buttonName,
+              style: const TextStyle(color: Colors.black),
+            )),
       );
     }
 
