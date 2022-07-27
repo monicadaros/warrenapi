@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:warrenapi/screens/wallet/wallet.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../screens/wallet/wallet.dart';
 
 class AppBottomBar extends StatefulWidget {
@@ -43,18 +43,18 @@ class _AppBottomBarState extends State<AppBottomBar> {
               onTap: (index) {
                 pageViewController.jumpToPage(index);
               },
-              items: const [
+              items: [
                 BottomNavigationBarItem(
                   icon: Icon(Icons.home),
-                  label: "Home",
+                  label: AppLocalizations.of(context)!.nameHome,
                 ),
                 BottomNavigationBarItem(
                   icon: Icon(Icons.card_travel),
-                  label: "Carteira",
+                  label: AppLocalizations.of(context)!.nameWallet,
                 ),
                 BottomNavigationBarItem(
                   icon: Icon(Icons.bar_chart_rounded),
-                  label: "Movimentações",
+                  label: AppLocalizations.of(context)!.nameMovement,
                 ),
               ],
             );

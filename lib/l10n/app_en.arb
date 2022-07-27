@@ -34,5 +34,9 @@
     "nameDetails": "Details",
     "@nameDetails":{
       "description": "title of the page details"
+    },
+    "nameCoin": "Coin",
+    "@nameDetails":{
+      "description": "title of the Coin"
     }
 }

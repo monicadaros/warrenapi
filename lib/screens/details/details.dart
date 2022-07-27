@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:warrenapi/widgets/chart_line.dart';
 import '../../models/screen model/crypto_detailsscreen.dart';
 import '../../widgets/app_bar.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class DetailsScreen extends ConsumerStatefulWidget {
   final DataDetailsScreen info;
@@ -15,14 +16,14 @@ class DetailsScreen extends ConsumerStatefulWidget {
 class _WalletScreenState extends ConsumerState<DetailsScreen> {
   @override
   Widget build(BuildContext context) {
-    const String pageName = "Detalhes";
+    String pageName = AppLocalizations.of(context)!.nameDetails;
 
     return Scaffold(
-        appBar: const PreferredSize(
+        appBar: PreferredSize(
           child: MyAppBar(
             pageName: pageName,
           ),
-          preferredSize: Size(double.infinity, 40),
+          preferredSize: const Size(double.infinity, 40),
         ),
         body: SingleChildScrollView(
             child: Column(children: [
@@ -33,17 +34,17 @@ class _WalletScreenState extends ConsumerState<DetailsScreen> {
               )),
           Column(
             children: [
-              const Text("Informações"),
+              Text(AppLocalizations.of(context)!.nameInfo),
               const Divider(),
               Column(children: [
                 ListTile(
                   title: Text(widget.info.name),
-                  subtitle: const Text("Valor atual"),
+                  subtitle: Text(AppLocalizations.of(context)!.nameActualValue),
                   trailing: Text("R\$" + widget.info.price_usd.toString()),
                 ),
                 const Divider(),
                 ListTile(
-                    title: const Text("Cap de mercado"),
+                    title: Text(AppLocalizations.of(context)!.nameMarketCap),
                     trailing: Column(
                       children: [
                         SizedBox(
@@ -66,11 +67,11 @@ class _WalletScreenState extends ConsumerState<DetailsScreen> {
                       ],
                     )),
                 ListTile(
-                  title: const Text("Valor mínimo"),
+                  title: Text(AppLocalizations.of(context)!.nameMinValue),
                   trailing: Text(widget.info.low.toString()),
                 ),
                 ListTile(
-                  title: const Text("Valor máximo"),
+                  title: Text(AppLocalizations.of(context)!.nameMaxValue),
                   trailing: Text(widget.info.high.toString()),
                 )
               ])

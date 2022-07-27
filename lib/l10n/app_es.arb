@@ -8,5 +8,6 @@
     "nameMinValue": "Valor mínimo",
     "nameMaxValue": "Valor máximo",
     "nameBtnConvert": "Conversión de moneda",
-    "nameDetails": "Detalles"
+    "nameDetails": "Detalles",
+    "nameCoin": "Moneda"
 }
