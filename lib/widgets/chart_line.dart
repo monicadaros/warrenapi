@@ -5,6 +5,7 @@ import 'package:warrenapi/lists/button_charts_list.dart';
 import '../models/screen model/crypto_detailsscreen.dart';
 import '../screens/provaider_screen.dart';
 import '../usecase/viewdata_chart.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ChartLine extends ConsumerStatefulWidget {
   final DataDetailsScreen info;
@@ -101,7 +102,7 @@ class _ChartLineState extends ConsumerState<ChartLine> {
                 padding: const EdgeInsets.all(0),
                 child: Column(children: [
                   ListTile(
-                    title: const Text("Moeda"),
+                    title: Text(AppLocalizations.of(context)!.nameCoin),
                     subtitle: Text(widget.info.name),
                     trailing: IconButton(
                         onPressed: () => _replaceChart(!selectChart),

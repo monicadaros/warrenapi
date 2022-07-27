@@ -4,7 +4,7 @@ import 'package:warrenapi/lists/crypto_list.dart';
 import 'package:warrenapi/screens/provaider_screen.dart';
 import 'package:warrenapi/screens/wallet/provaider_wallet.dart';
 import 'package:warrenapi/widgets/bool_visible.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../../models/screen model/crypto_detailsscreen.dart';
 import '../details/details.dart';
 
@@ -25,9 +25,9 @@ class _WalletScreenState extends ConsumerState<WalletScreen> {
         body: Container(
       padding: const EdgeInsets.fromLTRB(5, 30, 5, 5),
       child: Column(children: [
-        const ListTile(
+        ListTile(
             title: Text(
-              "Carteira",
+              AppLocalizations.of(context)!.nameWallet,
               style: TextStyle(
                 fontSize: 30,
                 fontWeight: FontWeight.bold,

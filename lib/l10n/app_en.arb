@@ -1,0 +1,42 @@
+{
+    "nameWallet": "Wallet",
+    "nameWallet": {
+      "description": "title of the page wallet"
+    },
+    "nameHome": "Home",
+    "nameHome":{
+      "description": "title of the page home"
+    },
+    "nameMovement": "Movement",
+    "nameMovement": {
+      "description": "title of the page movement"
+    },
+    "nameInfo": "Informations",
+    "nameInfo":{
+      "description": "title of the informations in detail's page"
+    },
+    "nameActualValue": "Current value",
+    "nameActualValue": {
+      "description": "title of item current value"
+    },
+    "nameMarketCap": "Market capitalization",
+    "nameMarketCap":{
+      "description": "title of the item market capitalization"
+    },
+    "nameMinValue": "Minimum value",
+    "nameMinValue": {
+      "description": "title of the item minimum value"
+    },
+    "nameMaxValue": "Maximum value",
+    "nameMaxValue":{
+      "description": "title of the item maximum value"
+    },
+    "nameDetails": "Details",
+    "nameDetails":{
+      "description": "title of the page details"
+    },
+    "nameCoin": "Coin",
+    "nameDetails":{
+      "description": "title of the Coin"
+    }
+}
