@@ -1,4 +1,4 @@
-import '../models/crypto_full_market_response.dart';
+import '../models/api model/crypto_full_market_response.dart';
 
 class DataCryptoViewData {
   final String symbol;

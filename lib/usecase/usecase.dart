@@ -1,6 +1,6 @@
 import 'package:warrenapi/usecase/mapper.dart';
 import 'package:warrenapi/usecase/viewdata.dart';
-
+import 'package:warrenapi/usecase/viewdata_chart.dart';
 import '../repository/cryptodata_repository.dart';
 
 class DataCryptoUseCase {
@@ -13,5 +13,11 @@ class DataCryptoUseCase {
     final response = await repository.getData();
 
     return response.toViewData();
+  }
+
+  Future<List<DataChartsViewData>> executechart() async {
+    final response = await repository.getData();
+
+    return response.toChartData();
   }
 }

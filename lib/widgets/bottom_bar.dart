@@ -12,7 +12,11 @@ class AppBottomBar extends StatefulWidget {
 
 class _AppBottomBarState extends State<AppBottomBar> {
   final pageViewController = PageController();
-  final List<Widget> pages = [Container(), const WalletScreen(), Container()];
+  final List<Widget> pages = [
+    Container(),
+    const WalletScreen(),
+    Container(),
+  ];
 
   @override
   void dispose() {

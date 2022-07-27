@@ -1,5 +1,5 @@
 import '../endpoint/endpoint.dart';
-import '../models/crypto_full_data_response.dart';
+import '../models/api model/crypto_full_data_response.dart';
 
 class DataCryptoRepository {
   final DataCryptoEndpoint dataCryptoEndpoint;

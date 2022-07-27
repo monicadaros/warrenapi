@@ -1,4 +1,4 @@
-import '../models/crypto_data_mock.dart';
+import '../models/screen model/crypto_data_mock.dart';
 
 class DataMockList {
   List<DataMockModel> dataMock = [

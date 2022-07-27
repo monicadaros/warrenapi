@@ -13,11 +13,12 @@ class _MyAppBarState extends State<MyAppBar> {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.grey,
       title: (Text(
         widget.pageName,
         textAlign: TextAlign.right,
-        style: const TextStyle(fontWeight: FontWeight.normal),
+        style:
+            const TextStyle(fontWeight: FontWeight.normal, color: Colors.black),
       )),
     );
   }

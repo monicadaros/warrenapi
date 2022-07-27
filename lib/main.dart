@@ -12,7 +12,7 @@ void main() {
         initialRoute: '/bottom_bar',
         routes: {
           '/bottom_bar': (BuildContext context) => const AppBottomBar(),
-          '/wallet_teste': (BuildContext context) => const WalletScreen(),
+          '/wallet': (BuildContext context) => const WalletScreen(),
         },
         theme: ThemeData(
           primarySwatch: Colors.pink,

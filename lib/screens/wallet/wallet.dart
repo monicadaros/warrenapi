@@ -5,6 +5,9 @@ import 'package:warrenapi/screens/provaider_screen.dart';
 import 'package:warrenapi/screens/wallet/provaider_wallet.dart';
 import 'package:warrenapi/widgets/bool_visible.dart';
 
+import '../../models/screen model/crypto_detailsscreen.dart';
+import '../details/details.dart';
+
 class WalletScreen extends ConsumerStatefulWidget {
   const WalletScreen({Key? key}) : super(key: key);
 
@@ -15,7 +18,7 @@ class WalletScreen extends ConsumerStatefulWidget {
 class _WalletScreenState extends ConsumerState<WalletScreen> {
   @override
   Widget build(BuildContext consumerStatefulElement) {
-    final cryptoProvider = ref.watch(dataCryptoProvider);
+    final cryptoProvider = ref.watch(dataCryptoProvider(dataCryptoProvider));
     final dataValueWallet = DataMockList().dataMock;
 
     return Scaffold(
@@ -48,6 +51,7 @@ class _WalletScreenState extends ConsumerState<WalletScreen> {
                     data: (getdata) => Column(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
+                              const Divider(),
                               Column(
                                 children: getdata
                                     .map((datas) => Container(
@@ -92,6 +96,35 @@ class _WalletScreenState extends ConsumerState<WalletScreen> {
                                                 ),
                                               ],
                                             ),
+                                            onTap: () {
+                                              Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                      builder: (context) =>
+                                                          DetailsScreen(
+                                                            info: DataDetailsScreen(
+                                                                high: datas
+                                                                    .metrics
+                                                                    .market_data
+                                                                    .ohlcv_last_1_hour
+                                                                    .high,
+                                                                low: datas
+                                                                    .metrics
+                                                                    .market_data
+                                                                    .ohlcv_last_1_hour
+                                                                    .low,
+                                                                name:
+                                                                    datas.name,
+                                                                percent_change_usd_last_1_hour: datas
+                                                                    .metrics
+                                                                    .market_data
+                                                                    .percent_change_usd_last_1_hour,
+                                                                price_usd: datas
+                                                                    .metrics
+                                                                    .market_data
+                                                                    .price_usd),
+                                                          )));
+                                            },
                                           ),
                                           const Divider()
                                         ])))
