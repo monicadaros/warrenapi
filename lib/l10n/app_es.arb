@@ -1,0 +1,12 @@
+{
+    "nameWallet": "Cartera",
+    "nameHome": "Comienzo",
+    "nameMovement": "Movimienot",
+    "nameInfo": "Información",
+    "nameActualValue": "Valor actual",
+    "nameMarketCap": "Cap de mercado",
+    "nameMinValue": "Valor mínimo",
+    "nameMaxValue": "Valor máximo",
+    "nameBtnConvert": "Conversión de moneda",
+    "nameDetails": "Detalles"
+}
