@@ -1,42 +1,42 @@
 {
     "nameWallet": "Wallet",
-    "@nameWallet": {
+    "nameWallet": {
       "description": "title of the page wallet"
     },
     "nameHome": "Home",
-    "@nameHome":{
+    "nameHome":{
       "description": "title of the page home"
     },
     "nameMovement": "Movement",
-    "@nameMovement": {
+    "nameMovement": {
       "description": "title of the page movement"
     },
     "nameInfo": "Informations",
-    "@nameInfo":{
+    "nameInfo":{
       "description": "title of the informations in detail's page"
     },
     "nameActualValue": "Current value",
-    "@nameActualValue": {
+    "nameActualValue": {
       "description": "title of item current value"
     },
     "nameMarketCap": "Market capitalization",
-    "@nameMarketCap":{
+    "nameMarketCap":{
       "description": "title of the item market capitalization"
     },
     "nameMinValue": "Minimum value",
-    "@nameMinValue": {
+    "nameMinValue": {
       "description": "title of the item minimum value"
     },
     "nameMaxValue": "Maximum value",
-    "@nameMaxValue":{
+    "nameMaxValue":{
       "description": "title of the item maximum value"
     },
     "nameDetails": "Details",
-    "@nameDetails":{
+    "nameDetails":{
       "description": "title of the page details"
     },
     "nameCoin": "Coin",
-    "@nameDetails":{
+    "nameDetails":{
       "description": "title of the Coin"
     }
 }
